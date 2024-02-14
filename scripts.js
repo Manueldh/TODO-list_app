@@ -42,7 +42,6 @@ closeOverlay.addEventListener("click", function(){
     overlay.classList.remove("open")
 })
 
-
 const saveBtn = document.getElementById("save-btn")
 let listArray = [
     {
@@ -50,7 +49,6 @@ let listArray = [
     "notes": "note"
     }
 ]
-
 
 function createOl() {
   onValue(toDoListInDB, (snapshot) => {
@@ -76,16 +74,10 @@ function createOl() {
 // Zorgt ervoor dat de database correct gedisplayed wordt.
 createOl()
 
-// Als er geklikt wordt dan wordt de input naar de databse gestuurd, dan wordt de createOl() functie geroepen zodat de database weer gedisplayed wordt. En ook wordt de overlay gesloten.
+// Als er geklikt wordt dan wordt de input naar de database gestuurd, dan wordt de createOl() functie geroepen zodat de database weer gedisplayed wordt. En ook wordt de overlay gesloten.
 saveBtn.addEventListener("click", function(){
     const inputTask = document.getElementById("input-task").value
     const inputNotes = document.getElementById("input-notes").value
-
-    // listArray.unshift({
-    //     "task": `${inputTask}`,
-    //     "notes": `${inputNotes}`
-    // })
-    // listArray.forEach((element) => console.log(element.task))
 
     push(toDoListInDB, {
         "task": `${inputTask}`,
@@ -94,7 +86,15 @@ saveBtn.addEventListener("click", function(){
 
     createOl()
     overlay.classList.remove("open")
-    
+})
 
+
+// Delete functie
+
+document.addEventListener("DOMContentLoaded", function(){
+  const deleteBtn = document.getElementById("deleteListItem")
+  deleteBtn.addEventListener("click", function(){
+    console.log("test")
+  })
 })
 
